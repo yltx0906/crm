@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.briup.dao.CustomerDao">
+	 
+	 <!-- 顾客 -->
+	<select id="allCustomer"   resultType="Cst_customer">
+		select   *
+		from Cst_customer
+	</select>
+	
+	<insert id="addCustomer" >
+		  	insert into 
+	 	  	cst_customer(cust_name,cust_manager_name,cust_addr,cust_zip,cust_tel,cust_fax,cust_website,cust_licence_no,cust_chieftain,
+	 	    cust_bankroll,cust_national_tax_no,cust_turnover,cust_bank,cust_bank_account,cust_local_tax_no,cust_region,cust_level_label)
+	 	    value(#{cust_name},#{cust_manager_name},#{cust_addr},#{cust_zip},#{cust_tel},#{cust_fax},#{cust_website},
+		   #{cust_licence_no},#{cust_chieftain},#{cust_bankroll},#{cust_national_tax_no},#{cust_turnover},#{cust_bank},
+		    #{cust_bank_account},#{cust_local_tax_no},#{cust_region},#{cust_level_label})
+ 
+	</insert>  
+	
+	<update id="updateCustomer" parameterType="Cst_customer">
+		update  cst_customer  
+		<set> 
+		<if test="cust_name != null">cust_name=#{cust_name},</if> 
+		<if test="cust_region != null">cust_region=#{cust_region},</if> 
+		<if test="cust_manager_name != null">cust_manager_name=#{cust_manager_name},</if> 
+		<if test="cust_level_label != null">cust_level_label=#{cust_level_label},</if> 
+		<if test="cust_addr != null">cust_addr=#{cust_addr},</if> 
+		<if test="cust_zip != null">cust_zip=#{cust_zip},</if> 
+		<if test="cust_tel != null">cust_tel=#{cust_tel},</if> 
+		<if test="cust_fax != null">cust_fax=#{cust_fax},</if> 
+		<if test="cust_website != null">cust_website=#{cust_website},</if> 
+		<if test="cust_licence_no != null">cust_licence_no=#{cust_licence_no},</if> 
+		<if test="cust_chieftain != null">cust_chieftain=#{cust_chieftain},</if> 
+		<if test="cust_bankroll != null">cust_bankroll=#{cust_bankroll},</if> 
+		<if test="cust_turnover != null">cust_turnover=#{cust_turnover},</if> 
+		<if test="cust_bank != null">cust_bank=#{cust_bank},</if> 
+		<if test="cust_bank_account != null">cust_bank_account=#{cust_bank_account},</if> 
+		<if test="cust_local_tax_no != null">cust_local_tax_no=#{cust_local_tax_no},</if> 
+		<if test="cust_national_tax_no != null">cust_national_tax_no=#{cust_national_tax_no},</if> 
+		</set> 
+		where cust_id=#{cust_id} 
+	</update>
+	
+	<delete id="delCustomerById">
+	   delete  from
+	   cst_customer  
+		where cust_id=#{cust_id} 
+	</delete>
+	
+	<!-- 联系人 -->
+	<select id="allLinkman"   resultType="Cst_linkman">
+		select   *
+		from Cst_linkman
+		where  lkm_cust_id=#{cust_id} 
+	</select>
+
+	<insert id="addLinkMan" >
+		  	insert into 
+	 	  	Cst_linkman(lkm_cust_id,lkm_name,lkm_sex,lkm_postion,lkm_tel,lkm_mobile,lkm_memo)
+	 	    value(#{lkm_cust_id},#{lkm_name},#{lkm_sex},#{lkm_postion},#{lkm_tel},#{lkm_mobile},#{lkm_memo})
+	</insert>  
+	
+	<update id="updateLinkman"   parameterType="Cst_linkman">
+		update  Cst_linkman  
+		<set> 
+		<if test="lkm_name != null">lkm_name=#{lkm_name},</if> 
+		<if test="lkm_sex != null">lkm_sex=#{lkm_sex},</if> 
+		<if test="lkm_postion != null">lkm_postion=#{lkm_postion},</if> 
+		<if test="lkm_tel != null">lkm_tel=#{lkm_tel},</if> 
+		<if test="lkm_mobile != null">lkm_mobile=#{lkm_mobile},</if> 
+		<if test="lkm_memo != null">lkm_memo=#{lkm_memo},</if> 
+		</set> 
+		where lkm_id=#{lkm_id} 
+	</update>
+	
+	<delete id="deleteLinkMan">
+	   delete  from
+	   Cst_linkman 
+		where lkm_id=#{lkm_id} 
+	</delete>
+    
+    <!-- 交往记录 -->
+    <select id="queryAllAcv"   resultType="Cst_activity">
+		select   *
+		from Cst_activity
+		where  atv_cust_id=#{cust_id} 
+	</select>
+
+	<insert id="addCst_activity" >
+		  	insert into 
+	 	  	Cst_activity(atv_cust_id,atv_place,atv_title,atv_desc)
+	 	    value(#{atv_cust_id},#{atv_place},#{atv_title},#{atv_desc})
+	</insert>  
+	
+	<update id="updateAtv"   parameterType="Cst_activity">
+		update  Cst_activity  
+		<set> 
+		<if test="atv_place != null">atv_place=#{atv_place},</if> 
+		<if test="atv_title != null">atv_title=#{atv_title},</if> 
+		<if test="atv_desc != null">atv_desc=#{atv_desc},</if> 
+		</set> 
+		where atv_id=#{atv_id} 
+	</update>
+	
+	<delete id="deleteAtv">
+	   delete  from
+	   Cst_activity 
+		where atv_id=#{atv_id} 
+	</delete>
+    
+   
+    
+	</mapper>
+	

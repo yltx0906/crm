@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+		
+	<!-- springmvc读取的配置文件，主要包含与网站跳转逻辑有关的控制及配置 -->
+	<!-- 注册注解驱动 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 扫描与前台页面相关的组件，即Controller -->
+	<context:component-scan base-package="com.briup.web.controller"></context:component-scan>
+	
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>  
+		<property name="prefix" value="/jsp/"/>  
+		<property name="suffix" value=".jsp"/>  
+	</bean>
+	
+	<!-- 解决静态资源不能访问的问题 -->
+	<mvc:resources mapping="/js/**" location="/js/"/>  
+	<mvc:resources mapping="/layui/**" location="/layui/"/>
+	<mvc:resources mapping="/html/**" location="/html/"/>
+	<mvc:resources mapping="/jsp/**" location="/jsp/"/>
+	
+	
+	<mvc:view-controller path="/sign" view-name="sign"/>
+	<mvc:view-controller path="/index" view-name="index"/>
+		
+</beans>

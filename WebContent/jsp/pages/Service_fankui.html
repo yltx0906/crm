@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销售机会管理</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./js/form.js"></script>
+</head>
+<body>
+    <div class="list">
+        <span class="layui-breadcrumb">
+  <a href="">首页</a>
+  <a href="">列表页</a>
+  <a href="">服务查询</a>
+ 
+</span>
+    </div>
+    <div class="listOne">
+        
+    </div>
+    <div class="inp">
+        <form class="layui-form" action="">
+ 
+  
+  <div class="layui-form-item">
+   
+    <div class="layui-input-block" style="margin-left:20px">
+      <select name="city" >
+        <option value="">请选择服务类型</option>
+        <option value="0">咨询</option>
+        <option value="1">投诉</option>
+        <option value="2">建议</option>
+        
+        
+      </select>
+    </div>
+  </div>
+   <div class="layui-form-item">
+   
+    <div class="layui-input-block" style="margin-left: 230px;margin-top:-52px;">
+      <select name="city" >
+        <option value="">请选择服务状态</option>
+        <option value="0">处理中</option>
+        <option value="1">已处理</option>
+        <option value="2">已反馈</option>
+       
+        
+      </select>
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+    
+  </div>
+</form>
+<div class="layui-input-block" style="margin-left:450px;margin-top:-54px">
+      <button id="fun" class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+      <button type="reset" class="resrt">重置</button>
+    </div>
+
+
+    <div class="tab">
+        <table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+     <th>序号</th>
+      <th>客户名称</th>
+      <th>概要</th>
+      <th>服务状态</th>
+      <th>处理人</th>
+      
+      <th >操作</th>
+
+
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>tom</td>
+      <td>小米公司需要100万个CPU</td>
+      <td>未处理</td>
+      <td>jack</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-circle-dot" style="font-size: 20px; color: red;"></i>   
+      </td>
+
+
+    </tr>
+    <tr>
+     <td>2</td>
+      <td>tom</td>
+      <td>小米公司需要100万个CPU</td>
+      <td>已处理</td>
+      <td>jack</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;"></i>   
+      </td>
+
+
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>tom</td>
+      <td>小米公司需要100万个CPU</td>
+      <td>未处理</td>
+      <td>jack</td>
+    
+      <td>
+          <i class="layui-icon layui-icon-circle-dot" style="font-size: 20px; color: red;"></i>  
+      </td>
+
+
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>tom</td>
+      <td>小米公司需要100万个CPU</td>
+      <td>已处理</td>
+      <td>jack</td>
+     
+      <td>
+         <i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;"></i>  
+      </td>
+
+
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>tom</td>
+      <td>小米公司需要100万个CPU</td>
+      <td>未处理</td>
+      <td>jack</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-circle-dot" style="font-size: 20px; color: red;"></i>   
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+    </div>
+ <div id="test1" style="margin-left:400px"></div>
+<script>
+  layui.use('laypage', function(){
+  var laypage = layui.laypage;
+  
+  //执行一个laypage实例
+  laypage.render({
+    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+    ,count: 50 //数据总数，从服务端得到
+  });
+});
+    $('.layui-icon-face-smile').on('click', function(){
+    layer.open({
+      type: 1,
+      title:'已处理',
+      area: ['600px', '360px'],
+      shadeClose: true, //点击遮罩关闭
+      content:`<div style="padding:20px;">
+    <form  action="">
+
+  <div class="layui-form-item">
+    
+    <div class="layui-input-block">
+      <input style="width:400px;height:30px;margin-top:15px"  type="text" name="title" required   placeholder="请输入客户名称" autocomplete="off" class="layui-input">
+    </div>
+
+   
+    <div class="layui-input-block">
+      <input style="width:400px;height:30px;margin-top:15px" type="text" name="title" required   placeholder="请输入简单概要" autocomplete="off" class="layui-input">
+    </div>
+   
+    <div class="layui-input-block">
+      <input style="width:400px;height:30px;margin-top:15px" type="text" name="title" required   placeholder="请输入服务状态" autocomplete="off" class="layui-input">
+    </div>
+    
+    <div class="layui-input-block">
+      <input style="width:400px;height:30px;margin-top:15px" type="text" name="title" required  lay-verify="required" placeholder="请输入处理人姓名" autocomplete="off" class="layui-input">
+    </div>
+    
+    
+   
+    
+
+  </div>
+    
+  </form>
+   
+       
+
+
+
+
+
+
+       <div class="layui-input-block">
+      <button id="five" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      
+    </div>
+
+
+      </div>`
+    });
+  });
+
+    $(document).on('click','#five',function(){
+                      layer.confirm('确定提交？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+          layer.msg('提交成功，点击关闭按钮关闭', {icon: 1});
+        }, function(){
+          layer.msg('重新提交', {
+            time: 20000, //20s后自动关闭
+            btn: ['明白了']
+          });
+        });
+            
+        });
+    $(document).on('click','#six',function(){
+                      layer.confirm('确定提交？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+          layer.msg('提交成功，点击关闭按钮关闭', {icon: 1});
+        }, function(){
+          layer.msg('重新提交', {
+            time: 20000, //20s后自动关闭
+            btn: ['明白了']
+          });
+        });
+            
+        });
+
+
+
+    
+  $('.layui-icon-fonts-code').on('click', function(){
+    layer.open({
+      type: 1,
+      title:'开发完成',
+      area: ['600px', '360px'],
+      shadeClose: true, //点击遮罩关闭
+      content: `<div style="padding:20px;">
+    <form  action="">
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">商机来源</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入商机来源" autocomplete="off" class="layui-input">
+    </div>
+
+    <label class="layui-form-label">客户名称</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入客户名称" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">成功几率</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入成功几率" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">商机概要</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入商机概要" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">联系人</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">联系电话</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">商机描述</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入商机描述" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">创建人</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入创建人" autocomplete="off" class="layui-input">
+    </div>
+
+  </div>
+    
+  </form>
+   <div class="layui-form-item">
+        <label class="layui-form-label">商机指派</label>
+        
+          <select style="width:430px;height:30px;" name="city" lay-verify="required">
+            <option value="">请选择</option>
+            <option value="0">华中</option>
+            <option value="1">华北</option>
+            <option value="2">华南</option>
+            <option value="3">华东</option>
+            
+          </select>
+        
+      </div>
+        <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">文本域</label>
+    <div class="layui-input-block">
+      <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+    </div>
+  </div>
+
+
+
+
+
+
+       <div class="layui-input-block">
+      <button id="six" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      
+    </div>
+
+
+      </div>`
+    });
+  });
+   
+$('#fun').click(function(){
+      alert('查询');
+
+    });
+
+
+</script> 
+    </div>
+
+<script src="./layui/layui.all.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>销售机会管理</title>
+	<link rel="stylesheet" href="./layui/css/layui.css">
+	<script src="./js/form.js"></script>
+</head>
+<body>
+	<div class="list">
+		<span class="layui-breadcrumb">
+  <a href="">系统设置</a>
+  <a href="">角色管理</a>
+  
+ 
+</span>
+	</div>
+	<div class="listOne">
+		
+	</div>
+	<div class="inp">
+		<form class="layui-form" action="">
+  <div class="layui-form-item">
+   
+    <div class="layui-input-block" style="margin-left:20px">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入客户名称" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+   
+    <div class="layui-input-block" style="margin-left:230px;margin-top:-52px">
+      <select name="city" lay-verify="required">
+        <option value="">请选择地域</option>
+        <option value="0">华中</option>
+        <option value="1">华北</option>
+        <option value="2">华南</option>
+        <option value="3">华东</option>
+        
+      </select>
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+    
+  </div>
+</form>
+<div class="layui-input-block" style="margin-left:450px;margin-top:-54px">
+     <button id="fun" class="layui-btn layui-btn-normal">查询</button>
+      <button type="reset" class="resrt">重置</button>
+    </div>
+<div class="btn">
+	<button style="position: absolute;top:100px;left:1050px" class="layui-btn layui-btn-lg layui-btn-normal">新增</button>
+</div>
+
+	<div class="tab">
+        <table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+     
+      <th>序号</th>
+      <th>角色名</th>
+      <th>描述</th>
+      <th>状态</th>
+      
+      <th >操作</th>
+
+
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td>1</td>
+      <td>管理员</td>
+      <td>超管，后台维护</td>
+      <td>正常</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-file" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+         <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+      </td>
+
+
+    </tr>
+    <tr>
+     
+      <td>2</td>
+      <td>高管</td>
+      <td>查看报表，知道公司发展方向</td>
+      <td>正常</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-file" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+         <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>   
+      </td>
+
+
+    </tr>
+    <tr>
+      
+      
+      <td>3</td>
+      <td>部门主管</td>
+      <td>创造商机 分配任务</td>
+      <td>正常</td>
+    
+      <td>
+          <i class="layui-icon layui-icon-file" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+          <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+      </td>
+
+
+    </tr>
+    <tr>
+      
+      
+      <td>3</td>
+      <td>客户经理</td>
+      <td>发展客户 完成任务</td>
+      <td>正常</td>
+     
+      <td>
+         <i class="layui-icon layui-icon-file" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+         <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+      </td>
+
+
+    </tr>
+    <tr>
+      
+       
+      <td>4</td>
+      <td>总经理</td>
+      <td>负责公司全部事宜</td>
+      <td>正常</td>
+      
+      <td>
+         <i class="layui-icon layui-icon-file" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+         <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>   
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+    </div>
+  <div id="test1" style="margin-left:400px"></div>
+<script>
+  layui.use('laypage', function(){
+  var laypage = layui.laypage;
+  
+  //执行一个laypage实例
+  laypage.render({
+    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+    ,count: 50 //数据总数，从服务端得到
+  });
+});
+	$('.layui-btn-normal').on('click', function(){
+    layer.open({
+      type: 1,
+      title:'角色管理',
+      area: ['600px', '200px'],
+      shadeClose: true, //点击遮罩关闭
+      content: `
+		
+
+         <table class="layui-table" >
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>角色名</th>
+          <th>描述</th>
+          <th>状态</th>
+          
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>tom</td>
+          <td style="padding-left:30px">
+    
+          </td>
+          <td></td>
+         
+          
+        
+      </tbody>
+    </table>
+
+
+
+       <div class="layui-input-block">
+      <button style="margin-left:350px" id="xinjian"  class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      
+          </div>
+
+
+      `
+    });
+  });
+
+      	 
+
+
+
+
+
+
+
+	$('.layui-icon-file').on('click', function(){
+    layer.open({
+      type: 1,
+      title:'编辑页',
+      area: ['600px', '200px'],
+      shadeClose: true, //点击遮罩关闭
+      content:`
+			   <table class="layui-table" >
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>角色名</th>
+          <th>描述</th>
+          <th>状态</th>
+          
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>tom</td>
+          <td style="padding-left:30px">
+    
+          </td>
+          <td></td>
+         
+          
+        
+      </tbody>
+    </table>
+            
+       <div class="layui-input-block">
+      <button id="ccc" style="margin-left:350px" id="eight" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      
+    
+
+      `
+    });
+  });
+
+   $(function () {
+    layui.use('layer', function(){
+        var $ = layui.jquery
+            ,layer = layui.layer //弹层
+ 
+        
+        $(document).on('click','#ccc',function(){
+                      layer.confirm('确定提交？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+          layer.msg('提交成功，点击关闭按钮关闭', {icon: 1});
+        }, function(){
+          layer.msg('重新提交', {
+            time: 20000, //20s后自动关闭
+            btn: ['明白了']
+          });
+        });
+            
+        });
+ 
+    });
+ 
+});
+
+        $(function () {
+    layui.use('layer', function(){
+        var $ = layui.jquery
+            ,layer = layui.layer //弹层
+ 
+        
+        $(document).on('click','#xinjian',function(){
+                      layer.confirm('确定提交？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+          layer.msg('提交成功，点击关闭按钮关闭', {icon: 1});
+        }, function(){
+          layer.msg('重新提交', {
+            time: 20000, //20s后自动关闭
+            btn: ['明白了']
+          });
+        });
+            
+        });
+ 
+    });
+ 
+});
+
+    
+
+  $('.layui-icon-delete').on('click', function(){
+		   
+		     layer.confirm('确认删除？', {
+		  //按钮
+		}, function(){
+		  layer.msg('删除成功', {icon: 1});
+		}, function(){
+		  layer.msg('取消', {
+		    time: 20000, //20s后自动关闭
+		    btn: ['明白了', '知道了']
+		  });
+});
+    
+    
+  });
+    
+    
+  
+
+      
+        
+      
+        
+        
+      
+    	   
+
+
+</script> 
+	</div>
+
+<script src="./layui/layui.all.js"></script>
+
+
+</body>
+</html>

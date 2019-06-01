@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.briup.mappers.StudentMapper是我们定义接口的全限定名字 这样就可以使用接口调用映射的SQL语句了 这个名字一定要和接口对应上 -->
+<mapper namespace="com.briup.dao.UserDao">
+
+	<select id="login" parameterType="String" resultType="Sys_user">
+		SELECT *
+		FROM sys_user
+		WHERE
+		USR_NAME=#{param1}
+		AND
+		USR_PASSWORD=#{param2}
+	</select>
+	
+	<select id="getOneRole" resultType="Sys_role">
+		SELECT *
+		FROM sys_role
+		WHERE
+		ROLE_ID=#{role_id}
+	</select>
+	
+	<select id="getAllRole"  resultType="Sys_role">
+		SELECT *
+		FROM sys_role
+	</select>
+	
+	<insert id="addRole" parameterType="Sys_role">
+		INSERT INTO sys_role
+		(role_name,role_desc,role_flag)
+		VALUES
+		(#{role_name},#{role_desc},#{role_flag})
+	</insert>
+	
+	<update id="updateRole" parameterType="Sys_role">
+		UPDATE sys_role  
+		<set> 
+		<if test="role_name != null">role_name=#{role_name},</if> 
+		<if test="role_desc != null">role_desc=#{role_desc},</if> 
+		<if test="role_flag != null">role_flag=#{role_flag}</if> 
+		</set> 
+		WHERE role_id=#{role_id} 
+	</update>
+	
+	<delete id="deleteRole" parameterType="Sys_role">
+		DELETE FROM sys_role
+		WHERE role_id=#{role_id}
+	</delete>
+	
+	<!--用户  -->
+	<select id="getAllMgr"  resultType="Sys_user">
+		SELECT *
+		FROM sys_user
+	</select>
+	
+	<insert id="addUser" parameterType="Sys_user">
+		INSERT INTO sys_user
+		(usr_name,usr_password,usr_flag,usr_role_name,usr_role_id)
+		VALUES
+		(#{usr_name},#{usr_password},#{usr_flag},#{usr_role_name},#{usr_role_id})
+	</insert>
+	
+	<update id="updateUser" parameterType="Sys_user">
+		UPDATE sys_user  
+		<set> 
+		<if test="usr_name != null">usr_name=#{usr_name},</if> 
+		<if test="usr_password != null">usr_password=#{usr_password},</if> 
+		<if test="usr_role_id != null">usr_role_id=#{usr_role_id},</if> 
+		<if test="usr_flag != null">usr_flag=#{usr_flag},</if> 
+		<if test="usr_role_name != null">usr_role_name=#{usr_role_name}</if> 
+		
+		</set> 
+		WHERE usr_id=#{usr_id} 
+	</update>
+	
+	<delete id="deleteUser" parameterType="Sys_user">
+		DELETE FROM sys_user
+		WHERE usr_id=#{usr_id}
+	</delete>
+
+</mapper>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+<body>
+  <div class="list">
+  <span class="layui-breadcrumb" style="margin-left:20px;margin-top:30px">
+  <a href="">首页</a>
+  <a href="">列表页</a>
+  <a href="">客户编辑页面</a>
+  
+</span>
+</div>
+  <div class="listOne">
+ 
+  </div>
+
+  <div  class="tab">
+    <table  class="layui-table" >
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead >
+    <tr >
+      <th>姓名</th>
+      <th>性别</th>
+      <th>职位</th>
+      
+
+   
+    <th style="text-align:center">操作</th>
+    
+
+
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>tom</td>
+      <td>男</td>
+      <td>经理</td>
+      >
+     
+      <td class="test" style="text-align:center;">
+        <i  class="layui-icon layui-icon-upload-circle" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+        <i id="first" class="layui-icon layui-icon-edit" title="修改" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+        <i class="layui-icon layui-icon-delete" title="编辑" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>
+          
+      </td>
+      
+
+
+    </tr>
+    <tr>
+      <td>tom</td>
+      <td>男</td>
+      <td>经理</td>
+      
+     
+      <td class="test" style="text-align:center;">
+        <i class="layui-icon layui-icon-upload-circle" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+        <i class="layui-icon layui-icon-edit" title="修改" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+        <i class="layui-icon layui-icon-delete" title="编辑" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+          
+      </td>
+      
+
+
+
+    </tr>
+    <tr>
+      <td>tom</td>
+      <td>男</td>
+      <td>经理</td>
+     
+      
+      <td class="test" style="text-align:center;">
+        <i class="layui-icon layui-icon-upload-circle" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+        <i class="layui-icon layui-icon-edit" title="修改" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+        <i class="layui-icon layui-icon-delete" title="编辑" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+           
+      </td>
+      
+
+
+
+    </tr>
+    <tr>
+      <td>tom</td>
+      <td>男</td>
+      <td>经理</td>
+      
+     
+      <td class="test" style="text-align:center;">
+        <i class="layui-icon layui-icon-upload-circle" style="font-size: 20px; color: #1E9FFF;padding:15px"></i> 
+        <i class="layui-icon layui-icon-edit" title="修改"  style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+        <i class="layui-icon layui-icon-delete" title="编辑" style="font-size: 20px; color: #1E9FFF;padding:15px"></i>  
+         
+      </td>
+      
+
+
+
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="layui-input-block">
+      <button style="margin-left:900px"   class="layui-btn" lay-submit lay-filter="formDemo">确认信息</button>
+      
+    </div>
+    <div id="test1" style="margin-left:500px"></div>
+  <script src="./layui/layui.all.js"></script>
+</body>
+</html>
+<script>
+  
+
+  $(function(){
+  $('.layui-input-block').on({
+    click:function(){
+      $('.layui-body').load('./pages/Info_find.html');
+       
+    }
+  },'button');
+});
+
+  $('.layui-icon-upload-circle').on('click', function(){
+    layer.open({
+      type: 1,
+      area: ['600px', '300px'],
+      shadeClose: true, //点击遮罩关闭
+      content: `
+              
+                 
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+  
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+
+
+
+
+
+            `
+          });
+        });
+
+  $('.layui-icon-edit').on('click', function(){
+    layer.open({
+      type: 1,
+      area: ['600px', '300px'],
+      shadeClose: true, //点击遮罩关闭
+      content: `
+           
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+  
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+
+       
+      `
+    });
+
+
+  });
+
+
+
+layui.use('layer', function(){
+      var layer = layui.layer;
+      $(document).on('click','#reset',function(){
+          $('.layui-layer-shade').css('display','none');
+          $('.layui-layer').css('display','none');
+
+       });
+    });       
+
+
+
+
+
+
+
+
+   $('.layui-icon-delete').on('click', function(){
+           
+             layer.confirm('确认删除？', {
+         
+        }, function(){
+          layer.msg('删除成功', {icon: 1});
+        }, function(){
+          layer.msg('也可以这样', {
+            time: 20000, //20s后自动关闭
+            btn: ['明白了', '知道了']
+          });
+        });
+            
+            
+          });
+
+
+   
+
+
+
+
+
+
+
+
+
+    
+
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>销售机会管理</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <script src="./js/form.js"></script>
+</head>
+<body>
+  <div class="list">
+    <span class="layui-breadcrumb">
+  <a href="">首页</a>
+  <a href="">列表页</a>
+  <a href="">销售机会管理</a>
+ 
+</span>
+ </div>
+ <div class="listOne">
+    
+  </div>
+    <div style="padding:20px;">
+    <form  action="">
+
+  <div class="layui-form-item">
+   <label class="layui-form-label">客户名称</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"   placeholder="请输入客户名称" autocomplete="off" class="layui-input">
+    </div>
+     <label class="layui-form-label">客户经理</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入名称" autocomplete="off" class="layui-input">
+    </div>
+   <label class="layui-form-label">客户地址</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+    </div>
+   <label class="layui-form-label">邮政编码</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入邮政编码" autocomplete="off" class="layui-input">
+    </div>
+   <label class="layui-form-label">客户电话</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入客户电话" autocomplete="off" class="layui-input">
+    </div>
+   <label class="layui-form-label">客户传真</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入客户传真" autocomplete="off" class="layui-input">
+    </div>
+   <label class="layui-form-label">客户网址</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入客户网址" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">营业执照</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入注册号" autocomplete="off" class="layui-input">
+    </div>
+
+    <label class="layui-form-label">法人</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入名称" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">注册资金</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入资金数额" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">商机概要</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入商机概要" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">年营业额</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入年营业额" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">开户银行</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入银行名称" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">银行账号</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入账号" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label">地税登记号</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" style="width:1000px"  placeholder="请输入登记号" autocomplete="off" class="layui-input">
+    </div>
+
+  
+  </div>
+  
+  
+
+
+
+    
+  </form>
+   <div class="layui-form-item">
+        <label class="layui-form-label">地区</label>
+        
+          <select style="width:90%;height:30px;" name="city" lay-verify="required">
+            <option value="">请选择</option>
+            <option value="0">华中</option>
+            <option value="1">华北</option>
+            <option value="2">华南</option>
+            <option value="3">华东</option>
+            
+          </select>
+        
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">客户等级</label>
+        
+          <select style="width:90%;height:30px;" name="city" lay-verify="required">
+            <option value="">请选择</option>
+            <option value="0">普通客户</option>
+            <option value="1">重点开发客户</option>
+            <option value="2">大客户</option>
+            <option value="3">合作伙伴</option>
+            <option value="4">战略合作伙伴</option>
+            
+          </select>
+        
+      </div>
+     
+
+
+
+
+
+
+       <div class="layui-input-block">
+     <button  id="twn" class="layui-btn layui-btn-fluid">立即提交</button>
+      
+    </div>
+
+
+      </div>
+
+
+
+      <script src="./layui/layui.all.js"></script>
+    
+    
+
+
+
+
+</body>
+</html>
+<script>
+ $(function(){
+
+
+
+  $('.layui-input-block').on({
+    click:function(){
+      $('.layui-body').load('./pages/find.html');
+       
+    }
+  },'button');
+
+
+}); 
+$('#twn').on({
+  click:function(){
+    layer.msg('提交成功');
+  }
+})
+
+
+
+</script>
